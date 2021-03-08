@@ -942,6 +942,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 130a1abfb36dd5d4180d1833121cfeec, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f75ea86bde00b084bbb382bd776b99fb, type: 3}
+--- !u!4 &966438528 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6059639853076965634, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
+  m_PrefabInstance: {fileID: 2940750036807943286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1089161815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1691,10 @@ PrefabInstance:
       propertyPath: navMeshAgent
       value: 
       objectReference: {fileID: 1245993245}
+    - target: {fileID: -2031421038513188286, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
+      propertyPath: weaponAttachPoint
+      value: 
+      objectReference: {fileID: 966438528}
     - target: {fileID: 3897086866276704674, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
       propertyPath: m_IsTrigger
       value: 0

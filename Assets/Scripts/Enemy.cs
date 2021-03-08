@@ -17,12 +17,20 @@ public class Enemy : MonoBehaviour
     // Animator ref
     private Animator animator;
     private Vector3 desiredVelocity;
-    
+
+    private GameObject equippedWeapon;
+    public Transform weaponAttachPoint;
+    public List<GameObject> weapons;
+    private GameObject _weapon;
+
 
     private void Awake()
     {
         // Cache animator
         animator = GetComponent<Animator>();
+
+        _weapon = weapons[Random.Range(0, weapons.Count)];
+        EquipWeapon(_weapon);
     }
 
     // Start is called before the first frame update
@@ -55,6 +63,29 @@ public class Enemy : MonoBehaviour
         // Limits speed of enemy
         navMeshAgent.velocity = animator.velocity;
     }
-
+    private void EquipWeapon(GameObject weaponToEquip)
+    {
+        // Is there already a weapon equipped? If so, unequip first
+        if (equippedWeapon != null)
+        {
+            UnequipWeapon();
+        }
+        equippedWeapon = weaponToEquip;
+        // Equip the desired weapon
+        equippedWeapon = Instantiate(weaponToEquip) as GameObject;
+        // Attach to specific point on player
+        equippedWeapon.transform.SetParent(weaponAttachPoint);
+        // Set weapon loc and rot
+        equippedWeapon.transform.localPosition = _weapon.transform.localPosition;
+        equippedWeapon.transform.localRotation = _weapon.transform.localRotation;
+    }
+    private void UnequipWeapon()
+    {
+        if (equippedWeapon)
+        {
+            Destroy(equippedWeapon.gameObject);
+            equippedWeapon = null;
+        }
+    }
 
 }
