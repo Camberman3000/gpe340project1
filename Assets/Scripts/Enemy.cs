@@ -63,11 +63,16 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("Forward", input.x);
         animator.SetFloat("Right", input.z);
 
+        float dist = Vector3.Distance(this.transform.position, player.transform.position);
 
-        if (equippedWeapon)
+        if (dist < maxAttackRange)
         {
-            equippedWeapon.AttackStart();
-        }
+            // Target is within range.
+            if (equippedWeapon)
+            {
+                equippedWeapon.AttackStart();
+            }
+        }       
     }
 
     private void OnAnimatorMove()
