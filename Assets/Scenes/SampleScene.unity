@@ -1695,6 +1695,14 @@ PrefabInstance:
       propertyPath: weaponAttachPoint
       value: 
       objectReference: {fileID: 966438528}
+    - target: {fileID: -2031421038513188286, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 8238842125319875296, guid: 64f80f4291c2a7042bb5a9eb9e683190, type: 3}
+    - target: {fileID: -2031421038513188286, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: -4859289914254462983, guid: c3611fee105b4b94bac942b2c895ed01, type: 3}
     - target: {fileID: 29795394460082213, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
       propertyPath: m_Layer
       value: 9

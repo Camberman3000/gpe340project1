@@ -18,11 +18,17 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     private Vector3 desiredVelocity;
 
-    private GameObject equippedWeapon;
+    private Weapon equippedWeapon;
     public Transform weaponAttachPoint;
-    public List<GameObject> weapons;
-    private GameObject _weapon;
+    public List<Weapon> weapons;
+    private Weapon _weapon;
 
+    [SerializeField, Tooltip("The enemy's allowed attack angle")]
+    [Range(1.0f, 100.0f)]
+    private float attackAngle = 10.5f;
+
+    [SerializeField, Tooltip("The enemy's max shooting range")]
+    private float maxAttackRange = 100.0f;
 
     private void Awake()
     {
@@ -56,6 +62,12 @@ public class Enemy : MonoBehaviour
 
         animator.SetFloat("Forward", input.x);
         animator.SetFloat("Right", input.z);
+
+
+        if (equippedWeapon)
+        {
+            equippedWeapon.AttackStart();
+        }
     }
 
     private void OnAnimatorMove()
@@ -63,7 +75,7 @@ public class Enemy : MonoBehaviour
         // Limits speed of enemy
         navMeshAgent.velocity = animator.velocity;
     }
-    private void EquipWeapon(GameObject weaponToEquip)
+    private void EquipWeapon(Weapon weaponToEquip)
     {
         // Is there already a weapon equipped? If so, unequip first
         if (equippedWeapon != null)
@@ -72,7 +84,7 @@ public class Enemy : MonoBehaviour
         }
         equippedWeapon = weaponToEquip;
         // Equip the desired weapon
-        equippedWeapon = Instantiate(weaponToEquip) as GameObject;
+        equippedWeapon = Instantiate(weaponToEquip) as Weapon;
         // Attach to specific point on player
         equippedWeapon.transform.SetParent(weaponAttachPoint);
         // Set weapon loc and rot
