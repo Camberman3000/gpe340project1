@@ -6,6 +6,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : Controller
 {
 
@@ -31,6 +32,12 @@ public class PlayerController : Controller
     public Vector3 axis = Vector3.up;
     Vector3 MousePosition;
 
+    public Vector3 jump;
+    public float jumpForce = 2.0f;
+    public bool isGrounded;
+    Rigidbody rb;
+
+
     // Getter/Setter for health
     public Health health { get; private set; }
 
@@ -44,7 +51,11 @@ public class PlayerController : Controller
     // Start is called before the first frame update
     public override void Start()
     {
-        base.Start();         
+        base.Start();
+
+        rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
+
     }
 
     // Update is called once per frame
@@ -119,6 +130,12 @@ public class PlayerController : Controller
 
                 UnequipWeapon();
             }           
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            Jump();
+            Debug.LogFormat("Jump");
         }
     }
     private void EquipWeapon(Weapon weaponToEquip)
@@ -237,4 +254,13 @@ public class PlayerController : Controller
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, playerRotateSpeed * Time.deltaTime);
     }
 
+    private void Jump()
+    {
+        rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+        isGrounded = false;
+    }
+    void OnCollisionStay()
+    {
+        isGrounded = true;
+    }
 }
