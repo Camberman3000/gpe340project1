@@ -76,10 +76,9 @@ public class WeaponRifle : Weapon
 
     public void ShootBullet()
     {
-
         if (firingMode == FiringMode.Semi && shotCounter < 1)
         {
-            Debug.LogFormat("PEW PEW!");
+            //Debug.LogFormat("PEW PEW!");
             // Instantiate
             GameObject projectile = Instantiate(prefabBullet, muzzle.position, muzzle.rotation * Quaternion.Euler(Random.onUnitSphere * spread)) as GameObject;
             // Get bullet class ref
@@ -94,7 +93,7 @@ public class WeaponRifle : Weapon
         }
         else if (firingMode == FiringMode.ThreeShotBurst && shotCounter < 3)
         {
-            Debug.LogFormat("PEW PEW!");
+            //Debug.LogFormat("PEW PEW!");
             // Instantiate
             GameObject projectile = Instantiate(prefabBullet, muzzle.position, muzzle.rotation * Quaternion.Euler(Random.onUnitSphere * spread)) as GameObject;
             // Get bullet class ref
@@ -109,7 +108,7 @@ public class WeaponRifle : Weapon
         }
         else if (firingMode == FiringMode.Full)
         {
-            Debug.LogFormat("PEW PEW!");
+            //Debug.LogFormat("PEW PEW!");
             // Instantiate
             GameObject projectile = Instantiate(prefabBullet, muzzle.position, muzzle.rotation * Quaternion.Euler(Random.onUnitSphere * spread)) as GameObject;
             // Get bullet class ref

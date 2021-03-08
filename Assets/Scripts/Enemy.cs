@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField, Tooltip("The NavMeshAgent")]
     private NavMeshAgent navMeshAgent;
     [SerializeField, Tooltip("The enemy's target")]    
-    private Transform target;
+    //private Transform target;
 
     [Header("Data")]
     // Animator ref
@@ -35,14 +35,14 @@ public class Enemy : MonoBehaviour
         // Cache animator
         animator = GetComponent<Animator>();
 
-        _weapon = weapons[Random.Range(0, weapons.Count)];
-        EquipWeapon(_weapon);
+       
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _weapon = weapons[Random.Range(0, weapons.Count)];
+        EquipWeapon(_weapon);
     }
 
     // Update is called once per frame
@@ -58,21 +58,30 @@ public class Enemy : MonoBehaviour
         // Enemy Movement
         desiredVelocity = Vector3.MoveTowards(desiredVelocity, navMeshAgent.desiredVelocity, navMeshAgent.acceleration * Time.deltaTime);
         Vector3 input = transform.InverseTransformDirection(desiredVelocity);
-
-
         animator.SetFloat("Forward", input.x);
         animator.SetFloat("Right", input.z);
 
+        // Distance between player and enemy
         float dist = Vector3.Distance(this.transform.position, player.transform.position);
+        // Get direction to target
+        Vector3 targetDir = player.transform.position - this.transform.position;
+        // Get angle to target
+        float angle = Vector3.Angle(targetDir, this.transform.forward);
+       // Debug.LogFormat("Angle {0} and Attack angle {1}", angle, attackAngle);
 
-        if (dist < maxAttackRange)
+        if (dist < maxAttackRange && angle <= attackAngle)
         {
-            // Target is within range.
+            // Target is within range and attack angle
             if (equippedWeapon)
             {
                 equippedWeapon.AttackStart();
-            }
-        }       
+            }            
+        }
+        else
+        {
+            // Target is either out of range or not within the attack angle
+            equippedWeapon.AttackEnd();
+        }
     }
 
     private void OnAnimatorMove()
@@ -105,4 +114,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void DestroyCharacter()
+    {
+        Destroy(this.gameObject);
+    }
 }

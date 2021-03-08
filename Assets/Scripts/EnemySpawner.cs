@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     //public List<GameObject> enemies;
-    [SerializeField] private GameObject prefabDummy;
+    [SerializeField] private Enemy enemy;
     public float spawnDelay;
-    private GameObject spawnedEnemy;
+    private Enemy spawnedEnemy;
     private float nextSpawnTime;
     private Transform tf;
     // Start is called before the first frame update
@@ -29,15 +29,24 @@ public class EnemySpawner : MonoBehaviour
                 // Spawn & set next spawn time
                 if (!spawnedEnemy)
                 {
-                    spawnedEnemy = Instantiate(prefabDummy, tf.position, Quaternion.identity) as GameObject;
+                    spawnedEnemy = Instantiate(enemy, tf.position, Quaternion.identity) as Enemy;
                     nextSpawnTime = Time.time + spawnDelay;
                 }
-               
             }
         }
         else
         {
-            // Object exists, so postpone the spawn
+            //// Object exists
+            //GameObject enemyInWorld = GameObject.FindWithTag("Enemy");
+
+            //if (!enemyInWorld)
+            //{
+            //    // Destroy and respawn
+            //    Destroy(spawnedEnemy);
+            //    spawnedEnemy = Instantiate(enemy, tf.position, Quaternion.identity) as Enemy;
+            //}
+
+            // Object exists and is active, so postpone the spawn
             nextSpawnTime = Time.time + spawnDelay;
         }
     }

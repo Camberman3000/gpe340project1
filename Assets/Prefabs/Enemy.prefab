@@ -1586,7 +1586,7 @@ Animator:
   m_GameObject: {fileID: 7061309839862278118}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2c959825b65e8d249887a5c0a2f35573, type: 3}
-  m_Controller: {fileID: 9100000, guid: 317a4f8480df4284693f061fac22458b, type: 2}
+  m_Controller: {fileID: 9100000, guid: f3d208e37ef78ae46b1047e2d0e20e83, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1609,7 +1609,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 3.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1630,11 +1630,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 7598385100073190791}
-  target: {fileID: 7689086365505846620}
+  animator: {fileID: 0}
   weaponAttachPoint: {fileID: 6059639853076965634}
   weapons:
-  - {fileID: 8685858842220962260, guid: 64f80f4291c2a7042bb5a9eb9e683190, type: 3}
-  - {fileID: 4541724174109892624, guid: c3611fee105b4b94bac942b2c895ed01, type: 3}
+  - {fileID: 8238842125319875296, guid: 64f80f4291c2a7042bb5a9eb9e683190, type: 3}
+  - {fileID: 8238842125319875296, guid: 64f80f4291c2a7042bb5a9eb9e683190, type: 3}
+  attackAngle: 28.4
+  maxAttackRange: 5.45
 --- !u!136 &3897086866276704674
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1686,10 +1688,10 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7061309839862278118}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: -2031421038513188286}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: DestroyCharacter
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
