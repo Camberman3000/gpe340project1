@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     // Animator ref
     private Animator animator;
     private Vector3 desiredVelocity;
+    
 
     private void Awake()
     {
@@ -33,16 +34,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        GameObject player = GameObject.FindWithTag("Player");         
+
         // Sets what the enemy is targeting
-        navMeshAgent.SetDestination(target.position);
+        //navMeshAgent.SetDestination(target.position);
+        navMeshAgent.SetDestination(player.transform.position);
 
         // Enemy Movement
         desiredVelocity = Vector3.MoveTowards(desiredVelocity, navMeshAgent.desiredVelocity, navMeshAgent.acceleration * Time.deltaTime);
         Vector3 input = transform.InverseTransformDirection(desiredVelocity);
 
 
-        //Vector3 input = navMeshAgent.desiredVelocity;
-        //input = transform.InverseTransformDirection(input);
         animator.SetFloat("Forward", input.x);
         animator.SetFloat("Right", input.z);
     }
