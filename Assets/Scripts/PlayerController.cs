@@ -256,11 +256,13 @@ public class PlayerController : Controller
 
     private void Jump()
     {
+        //rb.constraints = ~RigidbodyConstraints.FreezePositionY;
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         isGrounded = false;
     }
     void OnCollisionStay()
     {
         isGrounded = true;
+        //rb.constraints = RigidbodyConstraints.FreezePositionY;         
     }
 }
