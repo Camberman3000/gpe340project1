@@ -1634,8 +1634,8 @@ MonoBehaviour:
   weaponAttachPoint: {fileID: 6059639853076965634}
   weapons:
   - {fileID: 8238842125319875296, guid: 64f80f4291c2a7042bb5a9eb9e683190, type: 3}
-  - {fileID: 8238842125319875296, guid: 64f80f4291c2a7042bb5a9eb9e683190, type: 3}
-  attackAngle: 28.4
+  - {fileID: -4859289914254462983, guid: c3611fee105b4b94bac942b2c895ed01, type: 3}
+  attackAngle: 13.3
   maxAttackRange: 5.45
 --- !u!136 &3897086866276704674
 CapsuleCollider:

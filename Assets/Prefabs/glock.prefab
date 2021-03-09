@@ -356,7 +356,7 @@ MonoBehaviour:
   prefabBullet: {fileID: 8816882651928882033, guid: 64f311e54747fc94ca44b656c099f2c9, type: 3}
   muzzle: {fileID: 4541724175029137480}
   triggerPulled: 0
-  shotsPerMinute: 250
+  shotsPerMinute: 500
   spread: 5
 --- !u!1 &4541724174109892638
 GameObject:
