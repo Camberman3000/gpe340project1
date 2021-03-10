@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6936430753908431357, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
       propertyPath: maxActiveEnemies
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6936430753908431357, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
       propertyPath: enemyUnits.Array.size
