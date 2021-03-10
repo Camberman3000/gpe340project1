@@ -38,6 +38,20 @@ public class Bullet : MonoBehaviour
             // Destroy bullet
             Destroy(gameObject);
         }
+        else if (other.gameObject.tag == "Player")
+        {
+            // Is target?
+            GameObject bulletTarget = GameObject.FindWithTag("Player");
+            if (other.gameObject == bulletTarget)
+            {
+                // Get health script
+                Health playerHealth = bulletTarget.GetComponent<Health>();
+                // Apply dmg
+                playerHealth.Damage(damageDone);
+            }
+            // Destroy bullet
+            Destroy(gameObject);
+        }
         else
         {
             //Debug.LogFormat("Bullet - other.gameObject = Enemy ");

@@ -1215,6 +1215,7 @@ GameObject:
   - component: {fileID: 4369695662705074943}
   - component: {fileID: 825268966974395785}
   - component: {fileID: 5916336545020894866}
+  - component: {fileID: 2982366675352485004}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1309,9 +1310,24 @@ MonoBehaviour:
       m_Calls: []
   onDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2982366675352485004}
+        m_TargetAssemblyTypeName: Ragdoll, Assembly-CSharp
+        m_MethodName: TurnOnRagdoll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxHP: 100
-  currentHP: 50
+  currentHP: 5
+  destroyCounter: 0
+  destroyDelay: 5
+  destroyGameObject: 0
 --- !u!114 &5916336545020894866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1335,6 +1351,18 @@ MonoBehaviour:
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 222
   isGrounded: 1
+--- !u!114 &2982366675352485004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487245010950365741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935f50579079bd246a3028ba6a6d86c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3509781427313830195
 GameObject:
   m_ObjectHideFlags: 0

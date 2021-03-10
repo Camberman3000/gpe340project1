@@ -51,7 +51,13 @@ public class Ragdoll : MonoBehaviour
         mainCollider.enabled = false;
         mainRigidbody.isKinematic = true;
         animator.enabled = false;
-        navAgent.speed = 0;
+
+        // Keeps enemy from following player when dead
+        if (navAgent)
+        {
+            navAgent.speed = 0;
+        }
+       
     }
 
     /// <summary>

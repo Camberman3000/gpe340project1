@@ -17,6 +17,10 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHP = 100;
     [SerializeField] private float currentHP;
 
+    public float destroyCounter;
+    public float destroyDelay;
+    public bool destroyGameObject = false;
+
     // for UI
     public float percentHP { get { return currentHP / maxHP; } }    
 
@@ -29,7 +33,18 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (destroyGameObject == true)
+        {
+            destroyCounter += Time.deltaTime;
+            if (destroyCounter >= destroyDelay)
+            {
+                Destroy(gameObject);
+                // Reset bool
+                destroyGameObject = false;
+                // Reset counter 
+                destroyCounter = 0.0f;
+            }
+        }
     }
 
     /// 
@@ -51,6 +66,7 @@ public class Health : MonoBehaviour
             SendMessage("OnDie", SendMessageOptions.DontRequireReceiver);
             onDie.Invoke();
             Debug.LogFormat("He's Dead, Jim.");
+            destroyGameObject = true;
         }
     }
 

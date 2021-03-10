@@ -49,11 +49,15 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        GameObject player = GameObject.FindWithTag("Player");         
+        GameObject player = GameObject.FindWithTag("Player");
 
         // Sets what the enemy is targeting
         //navMeshAgent.SetDestination(target.position);
-        navMeshAgent.SetDestination(player.transform.position);
+        if (player)
+        {
+            navMeshAgent.SetDestination(player.transform.position);
+        }
+       
 
         // Enemy Movement
         desiredVelocity = Vector3.MoveTowards(desiredVelocity, navMeshAgent.desiredVelocity, navMeshAgent.acceleration * Time.deltaTime);
@@ -61,27 +65,32 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("Forward", input.x);
         animator.SetFloat("Right", input.z);
 
-        // Distance between player and enemy
-        float dist = Vector3.Distance(this.transform.position, player.transform.position);
-        // Get direction to target
-        Vector3 targetDir = player.transform.position - this.transform.position;
-        // Get angle to target
-        float angle = Vector3.Angle(targetDir, this.transform.forward);
-       // Debug.LogFormat("Angle {0} and Attack angle {1}", angle, attackAngle);
-
-        if (dist < maxAttackRange && angle <= attackAngle)
+        if (player)
         {
-            // Target is within range and attack angle
-            if (equippedWeapon)
+            // Distance between player and enemy
+            float dist = Vector3.Distance(this.transform.position, player.transform.position);
+            // Get direction to target
+            Vector3 targetDir = player.transform.position - this.transform.position;
+            // Get angle to target
+            float angle = Vector3.Angle(targetDir, this.transform.forward);
+            // Debug.LogFormat("Angle {0} and Attack angle {1}", angle, attackAngle);
+            if (dist < maxAttackRange && angle <= attackAngle)
             {
-                equippedWeapon.AttackStart();
-            }            
+                // Target is within range and attack angle
+                if (equippedWeapon)
+                {
+                    equippedWeapon.AttackStart();
+                }
+            }
+            else
+            {
+                // Target is either out of range or not within the attack angle
+                equippedWeapon.AttackEnd();
+            }
         }
-        else
-        {
-            // Target is either out of range or not within the attack angle
-            equippedWeapon.AttackEnd();
-        }
+
+
+       
     }
 
     private void OnAnimatorMove()
