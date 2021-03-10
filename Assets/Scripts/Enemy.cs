@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Enemy equips random weapon
         _weapon = weapons[Random.Range(0, weapons.Count)];
         EquipWeapon(_weapon);
     }
@@ -55,11 +56,11 @@ public class Enemy : MonoBehaviour
         //navMeshAgent.SetDestination(target.position);
         if (player)
         {
-            navMeshAgent.SetDestination(player.transform.position);
+            navMeshAgent.SetDestination(player.transform.position); // Enemy destination is player current location
         }
        
 
-        // Enemy Movement
+        // Enemy Movement - uses root motion and navmesh agent to move
         desiredVelocity = Vector3.MoveTowards(desiredVelocity, navMeshAgent.desiredVelocity, navMeshAgent.acceleration * Time.deltaTime);
         Vector3 input = transform.InverseTransformDirection(desiredVelocity);
         animator.SetFloat("Forward", input.x);
@@ -87,10 +88,7 @@ public class Enemy : MonoBehaviour
                 // Target is either out of range or not within the attack angle
                 equippedWeapon.AttackEnd();
             }
-        }
-
-
-       
+        }       
     }
 
     private void OnAnimatorMove()

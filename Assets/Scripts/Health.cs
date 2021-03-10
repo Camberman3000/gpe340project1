@@ -11,15 +11,16 @@ public class Health : MonoBehaviour
     private UnityEvent onHeal;
     [SerializeField, Tooltip("Raised every time the object is damaged.")]
     private UnityEvent onDamage;
-    //[SerializeField, Tooltip("Raised once when the object's health reaches 0.")]
+    // OnDie event
     public UnityEvent onDie;
-
+    // Health
     [SerializeField] private float maxHP = 100;
     [SerializeField] private float currentHP;
 
-    public float destroyCounter;
-    public float destroyDelay;
-    public bool destroyGameObject = false;
+    // Destroys the gameobject after x seconds
+    private float destroyCounter;
+    [SerializeField] private float destroyDelay;
+    private bool destroyGameObject = false;
 
     // for UI
     public float percentHP { get { return currentHP / maxHP; } }    
@@ -53,7 +54,7 @@ public class Health : MonoBehaviour
     /// Damage to apply. Must be positive.
     public void Damage(float damage)
     {
-        Debug.LogFormat("I've taken {0} damage!", damage);
+        //Debug.LogFormat("I've taken {0} damage!", damage);
         // Get larger value
         damage = Mathf.Max(damage, 0f);
         // Clamp to prevent going over/under
