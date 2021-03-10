@@ -234,6 +234,26 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: -2031421038513188286, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
+    - target: {fileID: -6936430753908431357, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
+      propertyPath: spawnDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6936430753908431357, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
+      propertyPath: maxActiveEnemies
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6936430753908431357, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
+      propertyPath: enemyUnits.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6936430753908431357, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
+      propertyPath: enemyUnits.Array.data[1]
+      value: 
+      objectReference: {fileID: 7061309839862278118, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
+    - target: {fileID: -6936430753908431357, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
+      propertyPath: enemyUnits.Array.data[2]
+      value: 
+      objectReference: {fileID: 7061309839862278118, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
     - target: {fileID: 945161883702091398, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
@@ -248,11 +268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3599388605308122348, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.015458584
+      value: 1.714
       objectReference: {fileID: 0}
     - target: {fileID: 3599388605308122348, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.628134
+      value: 13.897
       objectReference: {fileID: 0}
     - target: {fileID: 3599388605308122348, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -281,6 +301,18 @@ PrefabInstance:
     - target: {fileID: 3599388605308122348, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059228918570583146, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
+      propertyPath: scale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059228918570583146, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
+      propertyPath: scale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059228918570583146, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
+      propertyPath: scale.z
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}

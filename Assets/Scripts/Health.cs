@@ -11,8 +11,8 @@ public class Health : MonoBehaviour
     private UnityEvent onHeal;
     [SerializeField, Tooltip("Raised every time the object is damaged.")]
     private UnityEvent onDamage;
-    [SerializeField, Tooltip("Raised once when the object's health reaches 0.")]
-    private UnityEvent onDie;
+    //[SerializeField, Tooltip("Raised once when the object's health reaches 0.")]
+    public UnityEvent onDie;
 
     [SerializeField] private float maxHP = 100;
     [SerializeField] private float currentHP;
@@ -63,5 +63,7 @@ public class Health : MonoBehaviour
         currentHP = Mathf.Clamp(currentHP + health, 0f, maxHP);
         SendMessage("OnDamage", SendMessageOptions.DontRequireReceiver);             
     }
+
+   
  
 }

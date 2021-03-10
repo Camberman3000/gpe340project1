@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3599388605308122348}
   - component: {fileID: -6936430753908431357}
+  - component: {fileID: 4059228918570583146}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Enemy Spawn Point
@@ -43,5 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44798e5961b79bc43b571823cac59230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: -2031421038513188286, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
   spawnDelay: 5
+  enemyUnits:
+  - {fileID: 7061309839862278118, guid: 49df7ef368e5f844e9d473524b5b9b1e, type: 3}
+  currentActiveEnemies: 0
+  maxActiveEnemies: 3
+--- !u!114 &4059228918570583146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945161883702091398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20d72ef9e21ced4ebd1adddb1803394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 0, y: 0, z: 0}
