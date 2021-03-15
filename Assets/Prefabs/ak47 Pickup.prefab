@@ -437,6 +437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2d53c566ee2fe4cb6fd2591d20d188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 0
-  weaponToSpawn: {fileID: 0}
-  weaponToDisplay: {fileID: 0}
+  lifespan: 99
+  weaponToSpawn: {fileID: 8238842125319875296, guid: 64f80f4291c2a7042bb5a9eb9e683190, type: 3}
+  weaponToDisplay: {fileID: 21300000, guid: 130a1abfb36dd5d4180d1833121cfeec, type: 3}

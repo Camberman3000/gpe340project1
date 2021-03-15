@@ -80,7 +80,6 @@ public class Health : MonoBehaviour
         currentHP = Mathf.Clamp(currentHP + health, 0f, maxHP);
         SendMessage("OnDamage", SendMessageOptions.DontRequireReceiver);             
     }
-
-   
+     
  
 }

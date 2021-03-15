@@ -22,13 +22,17 @@ public class Ragdoll : MonoBehaviour
         mainCollider = GetComponent<Collider>();
         animator = GetComponent<Animator>();
         navAgent = GetComponent<NavMeshAgent>();
-        TurnOffRagdoll();
+        //TurnOffRagdoll();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (navAgent)
+        {
+            // store orig value
+            originalNavSpeed = navAgent.speed;            
+        }
     }
 
     // Update is called once per frame
@@ -60,8 +64,7 @@ public class Ragdoll : MonoBehaviour
             originalNavSpeed = navAgent.speed;
             // Set speed to 0
             navAgent.speed = 0;
-        }
-       
+        }       
     }
 
     
@@ -81,6 +84,9 @@ public class Ragdoll : MonoBehaviour
         mainRigidbody.isKinematic = false;
         animator.enabled = true;
         // Reset speed to orig value
-        navAgent.speed = originalNavSpeed;
+        if (navAgent)
+        {
+            navAgent.speed = originalNavSpeed;
+        }       
     }
 }

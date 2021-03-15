@@ -30,6 +30,7 @@ public abstract class Pickup : MonoBehaviour
         if (playerController)
         {
             OnPickUp(playerController);
+            Debug.Log("Pickup");
         }
     }
 

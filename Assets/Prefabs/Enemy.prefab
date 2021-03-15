@@ -2214,6 +2214,7 @@ GameObject:
   - component: {fileID: 8063545957049104148}
   - component: {fileID: 8554626250654257800}
   - component: {fileID: 5008411927340981948}
+  - component: {fileID: -6549631824021734156}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -2362,11 +2363,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -6549631824021734156}
+        m_TargetAssemblyTypeName: WeightedObject, Assembly-CSharp
+        m_MethodName: DropItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxHP: 100
-  currentHP: 100
-  destroyCounter: 0
+  currentHP: 2
   destroyDelay: 5
-  destroyGameObject: 0
 --- !u!114 &5008411927340981948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2379,6 +2390,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935f50579079bd246a3028ba6a6d86c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6549631824021734156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061309839862278118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77778d15b3592bf4d9afc813ce6522b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDrops:
+  - value: {fileID: 5135142054881686527, guid: f75ea86bde00b084bbb382bd776b99fb, type: 3}
+    chance: 1
+  - value: {fileID: 5135142054881686527, guid: f75ea86bde00b084bbb382bd776b99fb, type: 3}
+    chance: 1
+  - value: {fileID: 6691279696727816569, guid: 1f441b41e84b4b04eb3b6bf8401a1d79, type: 3}
+    chance: 1
+  itemDropChance: 1
+  cdfArray: []
 --- !u!1 &7072748238585973525
 GameObject:
   m_ObjectHideFlags: 0
