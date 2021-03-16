@@ -1324,7 +1324,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   maxHP: 100
-  currentHP: 5
+  currentHP: 25
   destroyDelay: 5
 --- !u!114 &5916336545020894866
 MonoBehaviour:

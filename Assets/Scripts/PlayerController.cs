@@ -9,7 +9,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : Controller
 {
-
     [Header("Weapons")]
     private Weapon _weapon;
     private Weapon equippedWeapon;
@@ -37,7 +36,6 @@ public class PlayerController : Controller
     public bool isGrounded;
     Rigidbody rb;
 
-
     // Getter/Setter for health
     public Health health { get; private set; }
 
@@ -55,7 +53,6 @@ public class PlayerController : Controller
 
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
-
     }
 
     // Update is called once per frame
@@ -240,7 +237,7 @@ public class PlayerController : Controller
                 //Debug.LogFormat("speed {0}!", newSpeed);
             }
             input *= newSpeed;
-            Debug.LogFormat("input.x {0}: input.y {1}: ", input.x, input.y);
+            //Debug.LogFormat("input.x {0}: input.y {1}: ", input.x, input.y);
 
         // Keeps the idiot from moving when there's no input
         if (input.x == 0 || input.y == 0)
@@ -251,8 +248,6 @@ public class PlayerController : Controller
         {
             rb.isKinematic = false;
         }
-
-
             anim.SetFloat("Forward", input.x * newSpeed);
             anim.SetFloat("Right", input.z * newSpeed);   
     }
