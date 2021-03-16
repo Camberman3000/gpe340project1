@@ -223,25 +223,38 @@ public class PlayerController : Controller
     }
 
     private void HandlePlayerMovement()
-    {
-        // Player movement
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        input = Vector3.ClampMagnitude(input, 1f);
-        input = transform.InverseTransformDirection(input);
-        // Sprint 
-        if (Input.GetKey(KeyCode.LeftShift))
+    {        
+            // Player movement
+            Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+            input = Vector3.ClampMagnitude(input, 1f);
+            input = transform.InverseTransformDirection(input);
+            // Sprint 
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                newSpeed = speed + sprintSpeed;
+                //Debug.LogFormat("speed {0}!", newSpeed);
+            }
+            else
+            {
+                newSpeed = speed;
+                //Debug.LogFormat("speed {0}!", newSpeed);
+            }
+            input *= newSpeed;
+            Debug.LogFormat("input.x {0}: input.y {1}: ", input.x, input.y);
+
+        // Keeps the idiot from moving when there's no input
+        if (input.x == 0 || input.y == 0)
         {
-            newSpeed = speed + sprintSpeed;
-            //Debug.LogFormat("speed {0}!", newSpeed);
+            rb.isKinematic = true;
         }
         else
         {
-            newSpeed = speed;
-            //Debug.LogFormat("speed {0}!", newSpeed);
+            rb.isKinematic = false;
         }
-        input *= newSpeed;
-        anim.SetFloat("Forward", input.x * newSpeed);
-        anim.SetFloat("Right", input.z * newSpeed);
+
+
+            anim.SetFloat("Forward", input.x * newSpeed);
+            anim.SetFloat("Right", input.z * newSpeed);   
     }
 
     private void HandlePlayerRotation()
