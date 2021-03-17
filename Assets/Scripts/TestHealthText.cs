@@ -21,7 +21,10 @@ public class TestHealthText : MonoBehaviour
 
     private void Update()
     {
-       Health health = player.GetComponent<Health>();
-        text.text = string.Format("Health: {0}%", Mathf.RoundToInt(health.percentHP * 100f));
+        if (player)
+        {
+            Health health = player.GetComponent<Health>();
+            text.text = string.Format("Health: {0}%", Mathf.RoundToInt(health.percentHP * 100f));
+        }       
     }
 }

@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public PlayerController playerPrefab;
     public Transform playerSpawnPoint;
     [SerializeField] private PlayerController player;
-    private float playerRespawnDelay;
-
+    [SerializeField] private float playerRespawnDelay;
+    [SerializeField] private int lives;
+    private bool Paused;
 
     // Start is called before the first frame update
     void Start()
@@ -29,30 +30,42 @@ public class GameManager : MonoBehaviour
             // Destroy the existing object to make way for the new one
             Destroy(gameObject);
         }
-
-        playerRespawnDelay = 2f;
+         
         SpawnPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Paused)
+            return;
     }
 
     private void SpawnPlayer()
     {
         player = Instantiate(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation) as PlayerController;
 
-        // Other setup 
-
-        player.health.onDie.AddListener(HandlePlayerDeath);
-        
+        player.health.onDie.AddListener(HandlePlayerDeath);        
     }
 
     private void HandlePlayerDeath()
     {
         player.health.onDie.RemoveListener(HandlePlayerDeath);
-        Invoke("SpawnPlayer", playerRespawnDelay);
+
+        if (lives > 0)
+        {
+            Invoke("SpawnPlayer", playerRespawnDelay);
+        }
+        else
+        {
+            // Game over
+        }
+        
+    }
+
+    public static void Pause()
+    {
+        instance.Paused = true;
+        Time.timeScale = 0f;
     }
 }

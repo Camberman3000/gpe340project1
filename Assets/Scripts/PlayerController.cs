@@ -134,6 +134,11 @@ public class PlayerController : Controller
             Jump();
             Debug.LogFormat("Jump");
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.Pause();
+        }
     }
     private void EquipWeapon(Weapon weaponToEquip)
     {

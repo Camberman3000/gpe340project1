@@ -1445,6 +1445,10 @@ PrefabInstance:
       propertyPath: playerSpawnPoint
       value: 
       objectReference: {fileID: 8734971546968837504}
+    - target: {fileID: 8734971547020788328, guid: 888efc220b01fd24bbac405ea2396e71, type: 3}
+      propertyPath: playerRespawnDelay
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8734971547020788329, guid: 888efc220b01fd24bbac405ea2396e71, type: 3}
       propertyPath: m_RootOrder
       value: 15
