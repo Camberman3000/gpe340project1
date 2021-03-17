@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Transform playerSpawnPoint;
     [SerializeField] private PlayerController player;
     [SerializeField] private float playerRespawnDelay;
-    [SerializeField] private int lives;
+    public int lives;
     private bool Paused;
 
     // Start is called before the first frame update
@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
         {
             // Set GameManager instance to this instance if none exists
             instance = this;
+            // Set initial lives + 1 (one gets subtracted on initial spawn)
+            lives = instance.lives + 1;
         }
         else
         {
@@ -43,8 +45,12 @@ public class GameManager : MonoBehaviour
 
     private void SpawnPlayer()
     {
+        // Define player
         player = Instantiate(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation) as PlayerController;
-
+        // Update lives
+        GameManager.instance.lives--;
+        Debug.Log("SPAWN PLAYER");
+        // Add onDie listener
         player.health.onDie.AddListener(HandlePlayerDeath);        
     }
 
@@ -58,7 +64,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // Game over
+            // Game over - show menu
         }
         
     }
