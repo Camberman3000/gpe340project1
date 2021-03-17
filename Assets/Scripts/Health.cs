@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
     public UnityEvent onDie;
     // Health
     [SerializeField] private float maxHP = 100;
-    [SerializeField] private float currentHP;
+    public float currentHP;
 
     // Destroys the gameobject after x seconds
     private float destroyCounter;
