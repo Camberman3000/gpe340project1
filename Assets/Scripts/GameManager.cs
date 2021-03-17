@@ -45,13 +45,17 @@ public class GameManager : MonoBehaviour
 
     private void SpawnPlayer()
     {
-        // Define player
-        player = Instantiate(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation) as PlayerController;
         // Update lives
         GameManager.instance.lives--;
-        Debug.Log("SPAWN PLAYER");
-        // Add onDie listener
-        player.health.onDie.AddListener(HandlePlayerDeath);        
+        if (GameManager.instance.lives > 0)
+        {
+            Debug.Log("SPAWN PLAYER");
+            // Define player
+            player = Instantiate(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation) as PlayerController;
+
+            // Add onDie listener
+            player.health.onDie.AddListener(HandlePlayerDeath);
+        }               
     }
 
     private void HandlePlayerDeath()
@@ -65,13 +69,16 @@ public class GameManager : MonoBehaviour
         else
         {
             // Game over - show menu
-        }
-        
+
+            // Pause game
+            Pause();
+        }        
     }
 
     public static void Pause()
     {
         instance.Paused = true;
+        // Set timescale to 0. This is like "bullet-time", slowing player perception.
         Time.timeScale = 0f;
     }
 }
