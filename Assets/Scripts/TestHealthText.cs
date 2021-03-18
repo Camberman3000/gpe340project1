@@ -12,7 +12,7 @@ public class TestHealthText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+       
     }
     private void Awake()
     {
@@ -21,6 +21,7 @@ public class TestHealthText : MonoBehaviour
 
     private void Update()
     {
+        player = GameObject.FindWithTag("Player");
         if (player)
         {
             Health health = player.GetComponent<Health>();
