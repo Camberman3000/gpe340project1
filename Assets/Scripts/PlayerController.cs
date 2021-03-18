@@ -142,7 +142,7 @@ public class PlayerController : Controller
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.Pause();
+            GameManager.instance.Pause();
         }
     }
     private void EquipWeapon(Weapon weaponToEquip)

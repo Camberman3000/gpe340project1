@@ -10,6 +10,7 @@ TagManager:
   - Enemy Spawn Point
   - Enemy
   - Dummy
+  - Menu
   layers:
   - Default
   - TransparentFX

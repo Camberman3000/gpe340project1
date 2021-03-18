@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     public int lives;
     private bool Paused;
     [SerializeField] private Text livesText;
-     
+    private GameObject menu;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,10 @@ public class GameManager : MonoBehaviour
         //lives = lives + 1;
         livesText.text = lives.ToString();
         SpawnPlayer();
+
+        // Get menu ref
+        menu = GameObject.FindGameObjectWithTag("Menu");
+        menu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -72,9 +77,18 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public static void Pause()
+    public void Pause()
     {
         instance.Paused = true;
         Time.timeScale = 0f;
+        menu.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        Debug.Log("RESUME!!");
+        instance.Paused = false;
+        Time.timeScale = 1.0f;
+        menu.SetActive(false);
     }
 }
