@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private bool Paused;
     [SerializeField] private Text livesText;
     private GameObject menu;
-
+    [SerializeField] private Text menuText;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
         // Get menu ref
         menu = GameObject.FindGameObjectWithTag("Menu");
         menu.SetActive(false);
+
+        //Pause game at start
+        Pause();
+        menuText.text = "Begin";
+
     }
 
     // Update is called once per frame
@@ -70,9 +75,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Pause();
             // Game over
             Debug.Log("GAME OVER!!");
             livesText.text = "0";
+            menuText.text = "Continue";
         }
         
     }
@@ -82,6 +89,7 @@ public class GameManager : MonoBehaviour
         instance.Paused = true;
         Time.timeScale = 0f;
         menu.SetActive(true);
+        menuText.text = "Paused";
     }
 
     public void Resume()
