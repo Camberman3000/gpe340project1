@@ -104,6 +104,9 @@ public class PlayerController : Controller
             _weapon.animationType = WeaponAnimationType.Handgun;
             anim.SetInteger("Weapon Anim Type", ((int)_weapon.animationType));             
             EquipWeapon(_weapon);
+            WeaponImage weaponImage = GameManager.instance.GetComponent<WeaponImage>();
+            weaponImage.AssignImage(1);
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -114,6 +117,8 @@ public class PlayerController : Controller
             _weapon.animationType = WeaponAnimationType.Rifle;
             anim.SetInteger("Weapon Anim Type", ((int)_weapon.animationType));
             EquipWeapon(_weapon);
+            WeaponImage weaponImage = GameManager.instance.GetComponent<WeaponImage>();            
+            weaponImage.AssignImage(2);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
