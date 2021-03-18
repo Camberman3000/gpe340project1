@@ -30,25 +30,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //// If null then spawn
-        //if (spawnedEnemy == null)
-        //{
-        //    // Enough time elapsed to spawn?
-        //    if (Time.time > nextSpawnTime)
-        //    {
-        //        // Spawn & set next spawn time
-        //        if (!spawnedEnemy)
-        //        {
-        //            spawnedEnemy = Instantiate(enemy, tf.position, Quaternion.identity) as Enemy;
-        //            nextSpawnTime = Time.time + spawnDelay;
-        //        }
-        //    }
-        //}
-        //else
-        //{           
-        //    // Object exists and is active, so postpone the spawn
-        //    nextSpawnTime = Time.time + spawnDelay;
-        //}
+        
     }
 
     private void SpawnEnemy()

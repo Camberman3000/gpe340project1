@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float playerRespawnDelay;
     public int lives;
     private bool Paused;
+    [SerializeField] private Text livesText;
+     
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +25,6 @@ public class GameManager : MonoBehaviour
         {
             // Set GameManager instance to this instance if none exists
             instance = this;
-            // Set initial lives + 1 (one gets subtracted on initial spawn)
-            lives = instance.lives + 1;
         }
         else
         {
@@ -32,7 +33,9 @@ public class GameManager : MonoBehaviour
             // Destroy the existing object to make way for the new one
             Destroy(gameObject);
         }
-         
+
+        //lives = lives + 1;
+        livesText.text = lives.ToString();
         SpawnPlayer();
     }
 
@@ -44,41 +47,34 @@ public class GameManager : MonoBehaviour
     }
 
     private void SpawnPlayer()
-    {
-        // Update lives
-        GameManager.instance.lives--;
-        if (GameManager.instance.lives > 0)
-        {
-            Debug.Log("SPAWN PLAYER");
-            // Define player
-            player = Instantiate(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation) as PlayerController;
+    {        
+        player = Instantiate(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation) as PlayerController;
 
-            // Add onDie listener
-            player.health.onDie.AddListener(HandlePlayerDeath);
-        }               
+        player.health.onDie.AddListener(HandlePlayerDeath);        
     }
 
     private void HandlePlayerDeath()
     {
         player.health.onDie.RemoveListener(HandlePlayerDeath);
-
+        lives--;
         if (lives > 0)
         {
+            
+            livesText.text = lives.ToString();
             Invoke("SpawnPlayer", playerRespawnDelay);
         }
         else
         {
-            // Game over - show menu
-
-            // Pause game
-            Pause();
-        }        
+            // Game over
+            Debug.Log("GAME OVER!!");
+            livesText.text = "0";
+        }
+        
     }
 
     public static void Pause()
     {
         instance.Paused = true;
-        // Set timescale to 0. This is like "bullet-time", slowing player perception.
         Time.timeScale = 0f;
     }
 }

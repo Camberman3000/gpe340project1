@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour
 
     public Slider slider;
     private GameObject player;
-    public Text livesText;
+
 
     void Start()
     {
@@ -17,16 +17,13 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-        // Update health
         player = GameObject.FindWithTag("Player");
         if (player)
         {
-            Health health = player.GetComponent<Health>();             
+            Health health = player.GetComponent<Health>();
+            //text.text = string.Format("Health: {0}%", Mathf.RoundToInt(health.percentHP * 100f));
             SetHealth(health.currentHP);
-            // Show remaining lives to UI
-            livesText.text = GameManager.instance.lives.ToString();
         }
-       
     }
     public void SetHealth(float health)
     {
@@ -37,5 +34,5 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = health;
         slider.value = health;
-    }     
+    }
 }

@@ -12,7 +12,7 @@ public class TestHealthText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
     private void Awake()
     {
@@ -21,8 +21,8 @@ public class TestHealthText : MonoBehaviour
 
     private void Update()
     {
-        player = GameObject.FindWithTag("Player");
-        if (player)
+       // player = GameObject.FindWithTag("Player");
+        if (player = GameObject.FindWithTag("Player"))
         {
             Health health = player.GetComponent<Health>();
             text.text = string.Format("Health: {0}%", Mathf.RoundToInt(health.percentHP * 100f));

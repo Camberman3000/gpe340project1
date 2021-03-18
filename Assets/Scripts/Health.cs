@@ -67,7 +67,7 @@ public class Health : MonoBehaviour
             SendMessage("OnDie", SendMessageOptions.DontRequireReceiver);
             onDie.Invoke();
             Debug.LogFormat("He's Dead, Jim.");
-            destroyGameObject = true;           
+            destroyGameObject = true;
         }
     }
 
