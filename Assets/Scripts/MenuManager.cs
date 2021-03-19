@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    //[SerializeField] private Scene Main;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +23,10 @@ public class MenuManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        GameManager.instance.Resume();
+        Debug.LogFormat("Clicked resume");
+        SceneManager.LoadScene("Main");
+        //GameManager.instance.Resume();
+        
     }
 
     public void QuitGame()

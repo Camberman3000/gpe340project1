@@ -43,9 +43,7 @@ public class GameManager : MonoBehaviour
         menu = GameObject.FindGameObjectWithTag("Menu");
         menu.SetActive(false);
 
-        //Pause game at start
-        Pause();
-        menuText.text = "Begin";
+         
 
     }
 
