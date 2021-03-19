@@ -2826,7 +2826,7 @@ MonoBehaviour:
         m_CallState: 2
   maxHP: 100
   currentHP: 2
-  destroyDelay: 5
+  destroyDelay: 2
 --- !u!114 &5008411927340981948
 MonoBehaviour:
   m_ObjectHideFlags: 0

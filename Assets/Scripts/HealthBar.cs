@@ -27,13 +27,13 @@ public class HealthBar : MonoBehaviour
         }
 
         //enemy = GameObject.FindWithTag("Enemy");
-        if (GameObject.FindWithTag("Enemy"))
-        {
-            Health health = enemy.GetComponent<Health>();
-            HealthBar healthBar = enemy.GetComponent<HealthBar>();
-            SetHealth(health.currentHP);
-            healthBar.slider.value = health.currentHP;
-        }
+        //if (GameObject.FindWithTag("Enemy"))
+        //{
+        //    Health health = enemy.GetComponent<Health>();
+        //    HealthBar healthBar = enemy.GetComponent<HealthBar>();
+        //    SetHealth(health.currentHP);
+        //    healthBar.slider.value = health.currentHP;
+        //}
     }
     public void SetHealth(float health)
     {

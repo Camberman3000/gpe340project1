@@ -57,8 +57,7 @@ public class Enemy : MonoBehaviour
         if (player)
         {
             navMeshAgent.SetDestination(player.transform.position); // Enemy destination is player current location
-        }
-       
+        }       
 
         // Enemy Movement - uses root motion and navmesh agent to move
         desiredVelocity = Vector3.MoveTowards(desiredVelocity, navMeshAgent.desiredVelocity, navMeshAgent.acceleration * Time.deltaTime);

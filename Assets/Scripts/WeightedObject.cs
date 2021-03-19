@@ -11,7 +11,7 @@ public class WeightedObject : MonoBehaviour
 {
 
     [Header("Item Drop Settings")]
-    public ItemDrops[] itemDrops;
+    public ItemDrops[] itemDrops; // List of items that can drop
     public double itemDropChance = 0.5f;
     public double[] cdfArray;
 
