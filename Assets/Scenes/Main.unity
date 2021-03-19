@@ -221,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5728685309551674752, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5728685309551674752, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1196,6 +1196,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 523256559730252052, guid: e5792d624e7c64640be82944ee25d59f, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 523256561196945221, guid: e5792d624e7c64640be82944ee25d59f, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1580,7 +1584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8734971547020788329, guid: 888efc220b01fd24bbac405ea2396e71, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8734971547020788329, guid: 888efc220b01fd24bbac405ea2396e71, type: 3}
       propertyPath: m_LocalPosition.x

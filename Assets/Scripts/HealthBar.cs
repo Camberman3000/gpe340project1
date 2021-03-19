@@ -8,6 +8,7 @@ public class HealthBar : MonoBehaviour
 
     public Slider slider;
     private GameObject player;
+    private GameObject enemy;
 
 
     void Start()
@@ -23,6 +24,15 @@ public class HealthBar : MonoBehaviour
             Health health = player.GetComponent<Health>();
             //text.text = string.Format("Health: {0}%", Mathf.RoundToInt(health.percentHP * 100f));
             SetHealth(health.currentHP);
+        }
+
+        //enemy = GameObject.FindWithTag("Enemy");
+        if (GameObject.FindWithTag("Enemy"))
+        {
+            Health health = enemy.GetComponent<Health>();
+            HealthBar healthBar = enemy.GetComponent<HealthBar>();
+            SetHealth(health.currentHP);
+            healthBar.slider.value = health.currentHP;
         }
     }
     public void SetHealth(float health)
