@@ -3299,6 +3299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4888ced49502d1a43ae365f6567d2380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVol_Slider: {fileID: 8536021767088971128}
+  soundVol_Slider: {fileID: 6411024637438819178}
+  musicVol_Slider: {fileID: 2069621621421173575}
   resolution_Dropdown: {fileID: 6497205316939869765}
   screenMode_Toggle: {fileID: 5557760899689058853}
   videoQuality_Dropdown: {fileID: 5954877668829716936}

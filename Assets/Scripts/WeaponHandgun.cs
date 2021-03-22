@@ -75,6 +75,11 @@ public class WeaponHandgun :Weapon
 
     public void ShootBullet()
     {
+
+        AudioSource audioData;
+        audioData = GetComponent<AudioSource>();
+
+
         if (firingMode == FiringMode.Semi && shotCounter < 1)
         {
             //Debug.LogFormat("PEW PEW!");
@@ -89,6 +94,9 @@ public class WeaponHandgun :Weapon
             rBody.AddRelativeForce(Vector3.forward * bulletSpeed, ForceMode.VelocityChange);
             // Increment shot counter
             shotCounter++;
+           // Play shooting sound
+            audioData.Play(0);
+
         }
         else if (firingMode == FiringMode.ThreeShotBurst && shotCounter < 3)
         {
@@ -104,6 +112,8 @@ public class WeaponHandgun :Weapon
             rBody.AddRelativeForce(Vector3.forward * bulletSpeed, ForceMode.VelocityChange);
             // Increment shot counter
             shotCounter++;
+            // Play shooting sound
+            audioData.Play(0);
         }        
     }
 

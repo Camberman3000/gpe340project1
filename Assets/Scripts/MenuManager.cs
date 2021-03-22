@@ -9,12 +9,26 @@ using System.Linq;
 
 public class MenuManager : MonoBehaviour
 {
+    // Volume settings
+    [SerializeField] private Slider masterVol_Slider;
+    [SerializeField] private Slider soundVol_Slider;
+    [SerializeField] private Slider musicVol_Slider;
+
+    // Graphics settings
     [SerializeField] private Dropdown resolution_Dropdown;
     [SerializeField] private Toggle screenMode_Toggle;
     [SerializeField] private Dropdown videoQuality_Dropdown;
+
+    // Screen resolution
     private List<string> resolutionList;
     private Resolution[] resolutions;
-    
+
+    // Player pref strings
+    private string masterVolEntry = "Master Volume";
+    private string soundVolEntry = "Sound Volume";
+    private string musicVolEntry = "Music Volume";
+
+
     private void Awake()
     {
         resolutions = Screen.resolutions; // Get list of screen resolutions and save to array
@@ -66,11 +80,39 @@ public class MenuManager : MonoBehaviour
     public void ApplySettings()
     {
         Debug.Log("Apply settings");
+        PlayerPrefs.SetFloat(masterVolEntry, masterVol_Slider.value);
+        PlayerPrefs.SetFloat(soundVolEntry, soundVol_Slider.value);
+        PlayerPrefs.SetFloat(musicVolEntry, musicVol_Slider.value);
+
+       
+
     }
 
     public void QuitGame()
     {
         EditorApplication.isPlaying = false;
         Application.Quit();
+    }
+
+    private void OnEnable()
+    {
+        // Set master volume
+        if (PlayerPrefs.HasKey(masterVolEntry))
+        {
+            masterVol_Slider.value = PlayerPrefs.GetFloat(masterVolEntry);             
+        }
+
+        if (PlayerPrefs.HasKey(soundVolEntry))
+        {
+            soundVol_Slider.value = PlayerPrefs.GetFloat(soundVolEntry);
+        }
+
+        if (PlayerPrefs.HasKey(musicVolEntry))
+        {
+            musicVol_Slider.value = PlayerPrefs.GetFloat(musicVolEntry);
+        }
+        
+        screenMode_Toggle.isOn = Screen.fullScreen;
+        videoQuality_Dropdown.value = QualitySettings.GetQualityLevel();
     }
 }

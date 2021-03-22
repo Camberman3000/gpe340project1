@@ -76,6 +76,10 @@ public class WeaponRifle : Weapon
 
     public void ShootBullet()
     {
+
+        AudioSource audioData;
+        audioData = GetComponent<AudioSource>();
+
         if (firingMode == FiringMode.Semi && shotCounter < 1)
         {
             //Debug.LogFormat("PEW PEW!");
@@ -90,6 +94,8 @@ public class WeaponRifle : Weapon
             rBody.AddRelativeForce(Vector3.forward * 1, ForceMode.VelocityChange);
             // Increment shot counter
             shotCounter++;
+            // Play shooting sound
+            audioData.Play(0);
         }
         else if (firingMode == FiringMode.ThreeShotBurst && shotCounter < 3)
         {
@@ -105,6 +111,8 @@ public class WeaponRifle : Weapon
             rBody.AddRelativeForce(Vector3.forward * 1, ForceMode.VelocityChange);
             // Increment shot counter
             shotCounter++;
+            // Play shooting sound
+            audioData.Play(0);
         }
         else if (firingMode == FiringMode.Full)
         {
@@ -117,7 +125,9 @@ public class WeaponRifle : Weapon
             bullet.damageDone = 10;
             // Get bullet rigidbody and propel forward - TODO: Change 1 to editor set var
             Rigidbody rBody = projectile.GetComponent<Rigidbody>();
-            rBody.AddRelativeForce(Vector3.forward * 1, ForceMode.VelocityChange);            
+            rBody.AddRelativeForce(Vector3.forward * 1, ForceMode.VelocityChange);
+            // Play shooting sound
+            audioData.Play(0);
         }
     }
 
