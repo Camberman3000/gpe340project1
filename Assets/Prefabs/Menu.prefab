@@ -2917,7 +2917,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Apply
+  m_Text: 'Quit
 
 '
 --- !u!1 &5728685309219400034
@@ -2932,7 +2932,6 @@ GameObject:
   - component: {fileID: 5728685309219400046}
   - component: {fileID: 5728685309219400047}
   - component: {fileID: 5728685309219400032}
-  - component: {fileID: 5728685309219400045}
   m_Layer: 5
   m_Name: ButtonBack
   m_TagString: Untagged
@@ -3042,7 +3041,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5728685309219400045}
+      - m_Target: {fileID: 9183736474325646999}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -3054,21 +3053,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5728685309219400045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5728685309219400034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4888ced49502d1a43ae365f6567d2380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resolution_Dropdown: {fileID: 0}
-  screenMode_Toggle: {fileID: 0}
-  videoQuality_Dropdown: {fileID: 0}
 --- !u!1 &5728685309237353803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,9 +3065,8 @@ GameObject:
   - component: {fileID: 5728685309237353815}
   - component: {fileID: 5728685309237353800}
   - component: {fileID: 5728685309237353801}
-  - component: {fileID: 5728685309237353814}
   m_Layer: 5
-  m_Name: ButtonApply
+  m_Name: ButtonApplyQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3191,9 +3174,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5728685309237353814}
+      - m_Target: {fileID: 9183736474325646999}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: ApplySettings
+        m_MethodName: ApplyQuitPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3203,21 +3186,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5728685309237353814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5728685309237353803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4888ced49502d1a43ae365f6567d2380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resolution_Dropdown: {fileID: 0}
-  screenMode_Toggle: {fileID: 0}
-  videoQuality_Dropdown: {fileID: 0}
 --- !u!1 &5728685309551674756
 GameObject:
   m_ObjectHideFlags: 0

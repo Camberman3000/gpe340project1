@@ -136,6 +136,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 5728685309237353801, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 5728685309551674752, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0

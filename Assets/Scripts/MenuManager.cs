@@ -26,7 +26,6 @@ public class MenuManager : MonoBehaviour
             resolution_Dropdown.value = i; // Set the dropdown value to the resolution index
         }
         resolution_Dropdown.AddOptions(resolutionList); // Add the list of resolutions to the dropdown options
-
         
         videoQuality_Dropdown.ClearOptions(); // Clear the video quality options
         videoQuality_Dropdown.AddOptions(QualitySettings.names.ToList()); // Populate the video quality dropdown
@@ -50,9 +49,23 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Main");        
     }
 
+    public void ApplyQuitPressed()
+    {
+        if (GameManager.instance.menuText.text == "Paused")
+        {
+            // Handle Quit Game
+            QuitGame();
+        }
+        else
+        {
+            // Handle Apply Settings
+            ApplySettings();
+        }
+    }
+
     public void ApplySettings()
     {
-
+        Debug.Log("Apply settings");
     }
 
     public void QuitGame()

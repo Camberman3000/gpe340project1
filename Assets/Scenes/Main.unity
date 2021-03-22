@@ -211,6 +211,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5728685309237353801, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ApplySettings
+      objectReference: {fileID: 0}
     - target: {fileID: 5728685309551674752, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -304,6 +308,17 @@ PrefabInstance:
 --- !u!114 &69427772 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5728685308639967581, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
+  m_PrefabInstance: {fileID: 69427771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &69427773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5728685308944578376, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
   m_PrefabInstance: {fileID: 69427771}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1574,6 +1589,10 @@ PrefabInstance:
       propertyPath: playerPrefab
       value: 
       objectReference: {fileID: 5916336545020894866, guid: d575a855d19e8b8458b29126dcbd15d0, type: 3}
+    - target: {fileID: 8734971547020788328, guid: 888efc220b01fd24bbac405ea2396e71, type: 3}
+      propertyPath: applyQuitText
+      value: 
+      objectReference: {fileID: 69427773}
     - target: {fileID: 8734971547020788328, guid: 888efc220b01fd24bbac405ea2396e71, type: 3}
       propertyPath: playerSpawnPoint
       value: 
