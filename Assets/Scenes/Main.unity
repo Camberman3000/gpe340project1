@@ -363,6 +363,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9183736474325646999, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
+      propertyPath: volumeVsDecibels.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183736474325646999, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
+      propertyPath: volumeVsDecibels.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183736474325646999, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
+      propertyPath: volumeVsDecibels.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183736474325646999, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
+      propertyPath: volumeVsDecibels.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183736474325646999, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
+      propertyPath: volumeVsDecibels.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}
 --- !u!114 &69427772 stripped
@@ -1645,6 +1665,10 @@ PrefabInstance:
       propertyPath: livesText
       value: 
       objectReference: {fileID: 45268905}
+    - target: {fileID: 8734971547020788328, guid: 888efc220b01fd24bbac405ea2396e71, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 8b9afb1fe66498549844c4e8a16728e4, type: 2}
     - target: {fileID: 8734971547020788328, guid: 888efc220b01fd24bbac405ea2396e71, type: 3}
       propertyPath: playerPrefab
       value: 

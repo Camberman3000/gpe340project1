@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class WeaponRifle : Weapon
 {
     [SerializeField] private GameObject prefabBullet;    
@@ -12,7 +11,7 @@ public class WeaponRifle : Weapon
     private int shotCounter = 0;
     private float timeNextShotIsReady;
     [SerializeField] private float shotsPerMinute;
-    [SerializeField] private int spread = 2;
+    [SerializeField] private int spread = 2;   
 
     public override void Awake()
     {
@@ -76,7 +75,6 @@ public class WeaponRifle : Weapon
 
     public void ShootBullet()
     {
-
         AudioSource audioData;
         audioData = GetComponent<AudioSource>();
 

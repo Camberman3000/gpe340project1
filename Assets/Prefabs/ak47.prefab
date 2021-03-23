@@ -429,6 +429,7 @@ MonoBehaviour:
   triggerPulled: 0
   shotsPerMinute: 444
   spread: 2
+  gunFire: {fileID: 0}
 --- !u!82 &511423124990334913
 AudioSource:
   m_ObjectHideFlags: 0
@@ -440,7 +441,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3585857182764698420, guid: 8b9afb1fe66498549844c4e8a16728e4, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5a06ec352acbe5a43b8d76b0babd921c, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

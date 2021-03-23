@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -19,6 +20,10 @@ public class GameManager : MonoBehaviour
     public Text menuText;
     public Text applyQuitText;
 
+     
+    public AudioMixer audioMixer;
+     
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +41,14 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //lives = lives + 1;
+        //lives UI and spawn player;
         livesText.text = lives.ToString();
         SpawnPlayer();
 
         // Get menu ref
         menu = GameObject.FindGameObjectWithTag("Menu");
-        menu.SetActive(false);
+        menu.SetActive(false);     
+
     }
 
     // Update is called once per frame
