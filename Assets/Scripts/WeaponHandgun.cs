@@ -13,6 +13,8 @@ public class WeaponHandgun :Weapon
     [SerializeField] private float shotsPerMinute;
     [SerializeField] private int spread = 2;
 
+
+
     public override void Awake()
     {
         timeNextShotIsReady = Time.time;
@@ -60,7 +62,10 @@ public class WeaponHandgun :Weapon
 
     public void MuzzleFlash()
     {
-        // TODO: Add muzzle flash
+        if (muzzleFlashParticle)
+        {            
+            muzzleFlashParticle.Emit(1);
+        }
     }
 
     public void CheckAndDoTracer()
@@ -75,10 +80,9 @@ public class WeaponHandgun :Weapon
 
     public void ShootBullet()
     {
-
+        MuzzleFlash();
         AudioSource audioData;
         audioData = GetComponent<AudioSource>();
-
 
         if (firingMode == FiringMode.Semi && shotCounter < 1)
         {

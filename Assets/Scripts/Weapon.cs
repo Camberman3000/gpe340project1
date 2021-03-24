@@ -25,7 +25,10 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected int damagePerShotSingle;
     [SerializeField] protected int damagePerShotThreeShot;
     [SerializeField] protected int bulletSpeed;
+
     
+    public ParticleSystem muzzleFlashParticle;
+
 
     // Check if conditions allow shooting
     protected bool bCanFire;

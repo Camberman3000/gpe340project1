@@ -51,26 +51,26 @@ public class MenuManager : MonoBehaviour
         //PlayerPrefs.DeleteAll();
 
         // AUDIO SETTINGS
-        if (PlayerPrefs.HasKey(musicVolEntry))
-        {
-            PlayerPrefs.GetFloat(musicVolEntry);
-            GameManager.instance.audioMixer.SetFloat(musicVolEntry, musicVol_Slider.value);
-            GameManager.instance.audioMixer.SetFloat(musicVolEntry, volumeVsDecibels.Evaluate(musicVol_Slider.value));
-        }
+        //if (PlayerPrefs.HasKey(musicVolEntry))
+        //{
+        //    PlayerPrefs.GetFloat(musicVolEntry);
+        //    GameManager.instance.audioMixer.SetFloat(musicVolEntry, musicVol_Slider.value);
+        //    GameManager.instance.audioMixer.SetFloat(musicVolEntry, volumeVsDecibels.Evaluate(musicVol_Slider.value));
+        //}
 
-        if (PlayerPrefs.HasKey(sfxVolEntry))
-        {
-            PlayerPrefs.GetFloat(sfxVolEntry);
-            GameManager.instance.audioMixer.SetFloat(sfxVolEntry, sfxVol_Slider.value);
-            GameManager.instance.audioMixer.SetFloat(sfxVolEntry, volumeVsDecibels.Evaluate(sfxVol_Slider.value));
-        }
+        //if (PlayerPrefs.HasKey(sfxVolEntry))
+        //{
+        //    PlayerPrefs.GetFloat(sfxVolEntry);
+        //    GameManager.instance.audioMixer.SetFloat(sfxVolEntry, sfxVol_Slider.value);
+        //    GameManager.instance.audioMixer.SetFloat(sfxVolEntry, volumeVsDecibels.Evaluate(sfxVol_Slider.value));
+        //}
 
-        if (PlayerPrefs.HasKey(masterVolEntry))
-        {
-            PlayerPrefs.GetFloat(masterVolEntry);
-            GameManager.instance.audioMixer.SetFloat(masterVolEntry, masterVol_Slider.value);
-            GameManager.instance.audioMixer.SetFloat(masterVolEntry, volumeVsDecibels.Evaluate(masterVol_Slider.value));
-        }
+        //if (PlayerPrefs.HasKey(masterVolEntry))
+        //{
+        //    PlayerPrefs.GetFloat(masterVolEntry);
+        //    GameManager.instance.audioMixer.SetFloat(masterVolEntry, masterVol_Slider.value);
+        //    GameManager.instance.audioMixer.SetFloat(masterVolEntry, volumeVsDecibels.Evaluate(masterVol_Slider.value));
+        //}
 
     }
 

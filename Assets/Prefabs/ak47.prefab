@@ -421,7 +421,8 @@ MonoBehaviour:
       m_Calls: []
   damagePerShotSingle: 20
   damagePerShotThreeShot: 15
-  bulletSpeed: 1
+  bulletSpeed: 3
+  muzzleFlashParticle: {fileID: 0}
   firingMode: 4
   animationType: 1
   prefabBullet: {fileID: 8816882651928882033, guid: 64f311e54747fc94ca44b656c099f2c9, type: 3}
@@ -429,7 +430,6 @@ MonoBehaviour:
   triggerPulled: 0
   shotsPerMinute: 444
   spread: 2
-  gunFire: {fileID: 0}
 --- !u!82 &511423124990334913
 AudioSource:
   m_ObjectHideFlags: 0

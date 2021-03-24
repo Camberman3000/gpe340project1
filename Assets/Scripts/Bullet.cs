@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public int damageDone;     
     // Lifespan of bullet
     [SerializeField] private float lifespan = 3.0f;
+    [SerializeField] private ParticleSystem hitParticle;
 
     public void Start()
     {         
@@ -19,7 +20,11 @@ public class Bullet : MonoBehaviour
     }
 
     public void OnCollisionEnter(Collision other)
-    {        
+    {
+
+
+        Instantiate(hitParticle, other.transform.position, other.transform.rotation);
+
         if (other.gameObject.tag == "Bullet")
         {
             // Do nothing, collision with another bullet
