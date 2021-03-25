@@ -11,13 +11,11 @@ using System.Linq;
 public class MenuManager : MonoBehaviour
 {
     // Volume settings
-    [SerializeField] private Slider masterVol_Slider;
+    public Slider masterVol_Slider;
     [SerializeField, Tooltip("The slider value vs decibel volume curve")]
     private AnimationCurve volumeVsDecibels;
-    [SerializeField] private Slider sfxVol_Slider;
-    [SerializeField] private Slider musicVol_Slider;
-
-  
+    public Slider sfxVol_Slider;
+    public Slider musicVol_Slider;  
 
     // Player pref strings
     private string masterVolEntry = "Master Volume";
@@ -49,35 +47,21 @@ public class MenuManager : MonoBehaviour
         videoQuality_Dropdown.AddOptions(QualitySettings.names.ToList()); // Populate the video quality dropdown
 
         //PlayerPrefs.DeleteAll();
+        // Get volume
+        //float masterVol;
+        //float musicVol;
+        //float sfxVol;
+        //GameManager.instance.audioMixer.GetFloat("Master Volume", out masterVol);
+        //GameManager.instance.audioMixer.GetFloat("Music Volume", out musicVol);
+        //GameManager.instance.audioMixer.GetFloat("SFX Volume", out sfxVol);
 
-        // AUDIO SETTINGS
-        //if (PlayerPrefs.HasKey(musicVolEntry))
-        //{
-        //    PlayerPrefs.GetFloat(musicVolEntry);
-        //    GameManager.instance.audioMixer.SetFloat(musicVolEntry, musicVol_Slider.value);
-        //    GameManager.instance.audioMixer.SetFloat(musicVolEntry, volumeVsDecibels.Evaluate(musicVol_Slider.value));
-        //}
-
-        //if (PlayerPrefs.HasKey(sfxVolEntry))
-        //{
-        //    PlayerPrefs.GetFloat(sfxVolEntry);
-        //    GameManager.instance.audioMixer.SetFloat(sfxVolEntry, sfxVol_Slider.value);
-        //    GameManager.instance.audioMixer.SetFloat(sfxVolEntry, volumeVsDecibels.Evaluate(sfxVol_Slider.value));
-        //}
-
-        //if (PlayerPrefs.HasKey(masterVolEntry))
-        //{
-        //    PlayerPrefs.GetFloat(masterVolEntry);
-        //    GameManager.instance.audioMixer.SetFloat(masterVolEntry, masterVol_Slider.value);
-        //    GameManager.instance.audioMixer.SetFloat(masterVolEntry, volumeVsDecibels.Evaluate(masterVol_Slider.value));
-        //}
-
+       
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
@@ -109,9 +93,19 @@ public class MenuManager : MonoBehaviour
     public void ApplySettings()
     {
         Debug.Log("Apply settings");
+        // Save settings to player prefs
         PlayerPrefs.SetFloat(masterVolEntry, masterVol_Slider.value);
         PlayerPrefs.SetFloat(sfxVolEntry, sfxVol_Slider.value);
         PlayerPrefs.SetFloat(musicVolEntry, musicVol_Slider.value);
+
+        // Set screen resolution
+        int i = resolution_Dropdown.value;            
+        Screen.SetResolution(Screen.resolutions[i].width, Screen.resolutions[i].height, true);
+
+        // Set volume 
+        GameManager.instance.audioMixer.SetFloat("Master Volume", masterVol_Slider.value);
+        GameManager.instance.audioMixer.SetFloat("Music Volume", musicVol_Slider.value);
+        GameManager.instance.audioMixer.SetFloat("SFX Volume", sfxVol_Slider.value);
     }
 
     public void QuitGame()

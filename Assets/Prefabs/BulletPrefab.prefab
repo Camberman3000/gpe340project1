@@ -227,3 +227,5 @@ MonoBehaviour:
   damageDone: 0
   lifespan: 3
   hitParticle: {fileID: 4030970340343100442, guid: dbfca10ebaa334c4a8e1e8d13b46145d, type: 3}
+  audioSource: {fileID: 1761135000041163086, guid: 84d301bdce14c2a4e8eae4a45a52f594, type: 3}
+  hitSound: {fileID: 8300000, guid: d31f80561c42a8e43a41be4cb54a2b12, type: 3}

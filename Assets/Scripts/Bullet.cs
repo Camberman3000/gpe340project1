@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour
     // Lifespan of bullet
     [SerializeField] private float lifespan = 3.0f;
     [SerializeField] private ParticleSystem hitParticle;
+    public AudioSource audioSource;
+    [SerializeField] private AudioClip hitSound;
+
 
     public void Start()
     {         
@@ -22,8 +25,13 @@ public class Bullet : MonoBehaviour
     public void OnCollisionEnter(Collision other)
     {
 
-
+        // Bullet hit particle
         Instantiate(hitParticle, other.transform.position, other.transform.rotation);
+
+        // Hit sound        
+        audioSource.PlayOneShot(hitSound);
+        
+       
 
         if (other.gameObject.tag == "Bullet")
         {

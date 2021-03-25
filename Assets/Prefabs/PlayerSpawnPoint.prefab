@@ -48,3 +48,8 @@ MonoBehaviour:
   player: {fileID: 0}
   playerRespawnDelay: 4
   lives: 2
+  livesText: {fileID: 0}
+  menuText: {fileID: 0}
+  applyQuitText: {fileID: 0}
+  audioMixer: {fileID: 0}
+  menuManager: {fileID: 9183736474325646999, guid: ba59e3dd4fe03f446a95a68c493686d0, type: 3}

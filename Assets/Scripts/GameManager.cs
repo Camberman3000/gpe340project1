@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
      
     public AudioMixer audioMixer;
+    public MenuManager menuManager;
      
 
     // Start is called before the first frame update
@@ -47,7 +48,12 @@ public class GameManager : MonoBehaviour
 
         // Get menu ref
         menu = GameObject.FindGameObjectWithTag("Menu");
-        menu.SetActive(false);     
+        menu.SetActive(false);
+
+        // Set volume 
+        GameManager.instance.audioMixer.SetFloat("Master Volume", menuManager.masterVol_Slider.value);
+        GameManager.instance.audioMixer.SetFloat("Music Volume", menuManager.musicVol_Slider.value);
+        GameManager.instance.audioMixer.SetFloat("SFX Volume", menuManager.sfxVol_Slider.value);
 
     }
 
