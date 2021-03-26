@@ -30,7 +30,6 @@ public class PlayerController : Controller
     private float playerRotateSpeed = 90.0f;
     public Vector3 axis = Vector3.up;
     Vector3 MousePosition;
-
     public Vector3 jump;
     public float jumpForce = 2.0f;
     public bool isGrounded;
@@ -102,11 +101,12 @@ public class PlayerController : Controller
             //Debug.LogFormat("You pressed 1 to equip weapon");             
             _weapon = weapon1;
             _weapon.animationType = WeaponAnimationType.Handgun;
-            anim.SetInteger("Weapon Anim Type", ((int)_weapon.animationType));             
+            anim.SetInteger("Weapon Anim Type", ((int)_weapon.animationType));   
+            // Equip
             EquipWeapon(_weapon);
+            // Set UI image
             WeaponImage weaponImage = GameManager.instance.GetComponent<WeaponImage>();
-            weaponImage.AssignImage(1);
-            
+            weaponImage.AssignImage(1);            
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -116,7 +116,9 @@ public class PlayerController : Controller
             _weapon = weapon2;
             _weapon.animationType = WeaponAnimationType.Rifle;
             anim.SetInteger("Weapon Anim Type", ((int)_weapon.animationType));
+            // Equip
             EquipWeapon(_weapon);
+            // Set UI image
             WeaponImage weaponImage = GameManager.instance.GetComponent<WeaponImage>();            
             weaponImage.AssignImage(2);
         }
@@ -129,7 +131,7 @@ public class PlayerController : Controller
                 Debug.LogFormat("You pressed 0 to unequip weapon");
                 equippedWeapon.animationType = WeaponAnimationType.None;
                 _weapon.animationType = WeaponAnimationType.None;
-
+                // Unequip
                 UnequipWeapon();
             }           
         }
@@ -195,7 +197,6 @@ public class PlayerController : Controller
             anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0.0f);
             anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 0.0f);
             anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 0.0f);
-
             // exit
             return;
         }

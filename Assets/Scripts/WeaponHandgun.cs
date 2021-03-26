@@ -13,8 +13,6 @@ public class WeaponHandgun :Weapon
     [SerializeField] private float shotsPerMinute;
     [SerializeField] private int spread = 2;
 
-
-
     public override void Awake()
     {
         timeNextShotIsReady = Time.time;
@@ -68,16 +66,6 @@ public class WeaponHandgun :Weapon
         }
     }
 
-    public void CheckAndDoTracer()
-    {
-        // TODO: Check to see if this is the 5th shot and if so shoot tracer round
-    }
-
-    public void CheckForJam()
-    {
-        // TODO: Check if jam chance roll succeeded and if so jam the weapon and require user to clear it manually
-    }
-
     public void ShootBullet()
     {
         MuzzleFlash();
@@ -120,19 +108,5 @@ public class WeaponHandgun :Weapon
             audioData.Play(0);
         }        
     }
-
-    public void ShootRocket()
-    {
-
-    }
-
-    public void AimDownScope()
-    {
-
-    }
-
-    public void ReturnToNormalAim()
-    {
-
-    }
+     
 }

@@ -6,7 +6,6 @@ public class WeaponRifle : Weapon
 {
     [SerializeField] private GameObject prefabBullet;    
     [SerializeField] private Transform muzzle;    
-
     public bool triggerPulled;
     private int shotCounter = 0;
     private float timeNextShotIsReady;
@@ -57,22 +56,7 @@ public class WeaponRifle : Weapon
         triggerPulled = false;
         shotCounter = 0;
     }
-
-    public void MuzzleFlash()
-    {
-        // TODO: Add muzzle flash
-    }
-
-    public void CheckAndDoTracer()
-    {
-        // TODO: Check to see if this is the 5th shot and if so shoot tracer round
-    }
-
-    public void CheckForJam()
-    {
-        // TODO: Check if jam chance roll succeeded and if so jam the weapon and require user to clear it manually
-    }
-
+    
     public void ShootBullet()
     {
         AudioSource audioData;
@@ -128,19 +112,5 @@ public class WeaponRifle : Weapon
             audioData.Play(0);
         }
     }
-
-    public void ShootRocket()
-    {
-
-    }
-
-    public void AimDownScope()
-    {
-
-    }
-
-    public void ReturnToNormalAim()
-    {
-
-    }
+        
 }

@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
     public AudioSource audioSource;
     [SerializeField] private AudioClip hitSound;
 
-
     public void Start()
     {         
         Destroy(gameObject, lifespan);
@@ -29,9 +28,7 @@ public class Bullet : MonoBehaviour
         Instantiate(hitParticle, other.transform.position, other.transform.rotation);
 
         // Hit sound        
-        audioSource.PlayOneShot(hitSound);
-        
-       
+        audioSource.PlayOneShot(hitSound);       
 
         if (other.gameObject.tag == "Bullet")
         {

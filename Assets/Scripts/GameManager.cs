@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     private GameObject menu;
     public Text menuText;
     public Text applyQuitText;
-
      
     public AudioMixer audioMixer;
     public MenuManager menuManager;
@@ -50,7 +49,7 @@ public class GameManager : MonoBehaviour
         menu = GameObject.FindGameObjectWithTag("Menu");
         menu.SetActive(false);
 
-        // Set volume 
+        // Set volume at game start
         GameManager.instance.audioMixer.SetFloat("Master Volume", menuManager.masterVol_Slider.value);
         GameManager.instance.audioMixer.SetFloat("Music Volume", menuManager.musicVol_Slider.value);
         GameManager.instance.audioMixer.SetFloat("SFX Volume", menuManager.sfxVol_Slider.value);
@@ -60,6 +59,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Return if paused
         if (Paused)
             return;
     }
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     private void SpawnPlayer()
     {        
         player = Instantiate(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation) as PlayerController;
-
+        // Add listener
         player.health.onDie.AddListener(HandlePlayerDeath);        
     }
 

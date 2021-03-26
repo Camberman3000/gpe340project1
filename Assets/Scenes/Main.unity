@@ -424,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6936430753908431357, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
       propertyPath: maxActiveEnemies
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6936430753908431357, guid: c7046d3f0f32a254c8613b6c5d62a8b0, type: 3}
       propertyPath: enemyUnits.Array.size
@@ -1088,8 +1088,10 @@ LightProbeGroup:
   - {x: 1, y: -1, z: -1}
   - {x: -1, y: 1, z: 1}
   - {x: -1, y: 1, z: -1}
-  - {x: -1, y: -1, z: 1}
+  - {x: -1.4735421, y: -1, z: 1}
   - {x: -1, y: -1, z: -1}
+  - {x: 1.6424116, y: -1.2201835, z: 0.3699928}
+  - {x: -1.132528, y: -1.5465468, z: 4.447352}
   m_Dering: 1
 --- !u!4 &1003476237
 Transform:
@@ -1099,7 +1101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003476235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.282155, y: 4.09, z: 6.572606}
+  m_LocalPosition: {x: 7.282155, y: 6.65, z: 6.572606}
   m_LocalScale: {x: 6.43, y: 5.45, z: 9.66}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1253,7 +1255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646434001}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 7.76, y: 6.17, z: 6.572606}
+  m_LocalPosition: {x: 15.976, y: 4.46, z: 6.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

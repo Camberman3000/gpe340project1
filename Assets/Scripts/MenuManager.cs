@@ -10,29 +10,32 @@ using System.Linq;
 
 public class MenuManager : MonoBehaviour
 {
+    [Header("Audio")]
     // Volume settings
     public Slider masterVol_Slider;
     [SerializeField, Tooltip("The slider value vs decibel volume curve")]
     private AnimationCurve volumeVsDecibels;
     public Slider sfxVol_Slider;
-    public Slider musicVol_Slider;  
+    public Slider musicVol_Slider;
 
+    [Header("Player")]
     // Player pref strings
     private string masterVolEntry = "Master Volume";
     private string sfxVolEntry = "SFX Volume";
     private string musicVolEntry = "Music Volume";
 
+    [Header("Graphics")]
     // Graphics settings
     [SerializeField] private Dropdown resolution_Dropdown;
     [SerializeField] private Toggle screenMode_Toggle;
     [SerializeField] private Dropdown videoQuality_Dropdown;
-
     // Screen resolution
     private List<string> resolutionList;
     private Resolution[] resolutions;
 
     private void Awake()
     {
+        //* RESOLUTIONS */
         resolutions = Screen.resolutions; // Get list of screen resolutions and save to array
         resolution_Dropdown.ClearOptions(); // Clear out existing dropdown options
         resolutionList = new List<string>(); // Create a list to hold resolutions
@@ -42,20 +45,10 @@ public class MenuManager : MonoBehaviour
             resolution_Dropdown.value = i; // Set the dropdown value to the resolution index
         }
         resolution_Dropdown.AddOptions(resolutionList); // Add the list of resolutions to the dropdown options
-
+        
+        //* VIDEO QUALITY */
         videoQuality_Dropdown.ClearOptions(); // Clear the video quality options
-        videoQuality_Dropdown.AddOptions(QualitySettings.names.ToList()); // Populate the video quality dropdown
-
-        //PlayerPrefs.DeleteAll();
-        // Get volume
-        //float masterVol;
-        //float musicVol;
-        //float sfxVol;
-        //GameManager.instance.audioMixer.GetFloat("Master Volume", out masterVol);
-        //GameManager.instance.audioMixer.GetFloat("Music Volume", out musicVol);
-        //GameManager.instance.audioMixer.GetFloat("SFX Volume", out sfxVol);
-
-       
+        videoQuality_Dropdown.AddOptions(QualitySettings.names.ToList()); // Populate the video quality dropdown        
     }
 
     // Start is called before the first frame update
@@ -72,7 +65,8 @@ public class MenuManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        Debug.LogFormat("Clicked resume");
+        //Debug.LogFormat("Clicked resume");
+        // Load scene
         SceneManager.LoadScene("Main");
     }
 
@@ -110,13 +104,13 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        EditorApplication.isPlaying = false;
+        //EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
     private void OnEnable()
     {
-        // Set master volume
+        // Set slider values
         if (PlayerPrefs.HasKey(masterVolEntry))
         {
             masterVol_Slider.value = PlayerPrefs.GetFloat(masterVolEntry);
@@ -132,7 +126,9 @@ public class MenuManager : MonoBehaviour
             musicVol_Slider.value = PlayerPrefs.GetFloat(musicVolEntry);
         }
 
+        // Set Full screen checkbox
         screenMode_Toggle.isOn = Screen.fullScreen;
+        // Set Video quality dropdown
         videoQuality_Dropdown.value = QualitySettings.GetQualityLevel();
     }
 }
