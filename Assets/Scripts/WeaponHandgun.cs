@@ -68,7 +68,9 @@ public class WeaponHandgun :Weapon
 
     public void ShootBullet()
     {
+        // Particles
         MuzzleFlash();
+        // Fire sound def
         AudioSource audioData;
         audioData = GetComponent<AudioSource>();
 
@@ -86,7 +88,7 @@ public class WeaponHandgun :Weapon
             rBody.AddRelativeForce(Vector3.forward * bulletSpeed, ForceMode.VelocityChange);
             // Increment shot counter
             shotCounter++;
-           // Play shooting sound
+           // Play shooting sound assigned in audiosource component
             audioData.Play(0);
 
         }
